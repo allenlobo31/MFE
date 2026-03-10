@@ -1,0 +1,34 @@
+{
+  "name": "mentor1part2",
+  "version": "1.0.0",
+  "workspaces": [
+    "shell-app",
+    "flight-app",
+    "train-app",
+    "hotels-app"
+  ],
+  "scripts": {
+    "dev:shell": "cd shell-app && npm run dev",
+    "dev:flight": "cd flight-app && npm run dev",
+    "dev:trains": "cd train-app && npm run dev",
+    "dev": "npm run build &&concurrently \"npm run dev:shell\" \"npm run preview:flight\" \"npm run preview:trains\"",
+
+    "build:shell": "cd shell-app && npm run build",
+    "build:flight": "cd flight-app && npm run build",
+    "build:trains": "cd train-app && npm run build",
+    "build": "npm run build:shell && npm run build:flight && npm run build:trains",
+
+    "preview:flight": "cd flight-app && npm run preview",
+    "preview:trains": "cd train-app && npm run preview",
+    
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
